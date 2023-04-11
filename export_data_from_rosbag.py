@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 This code is inspired in
 Code from : https://github.com/uzh-rpg/rpg_ev-transfer/blob/5c953692c6a0e06a3810830fec4ef8db5de0ddb6/datasets/extract_data_tools/export_data_from_rosbag.py#L122
@@ -56,8 +57,10 @@ parser.add_argument("--color", action="store_true")
 
 args = parser.parse_args()
 
+print("Loading bag ...")
 # Load dataset
 bag = rosbag.Bag(args.data_path, "r")
+print("Done ...")
 # Check dataset
 num_event_msgs, num_img_msgs = get_rosbag_stats(bag, args.topic_events, args.topic_image)
 # bridge = CvBridge()
